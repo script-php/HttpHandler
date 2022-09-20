@@ -11,25 +11,28 @@ public class MainActivity {
   
   protected void onCreate() {
   
-   new Thread(new Runnable() {
-        @Override
-        public void run() {
-         // GET method:
+    new Thread(new Runnable() {
+       @Override
+       public void run() {
 
-         // get_content variable will store the content returned from url
-         String get_content = request.GET("https://your.website.com/?param=value");  
+           // GET method:
+           try {
+               String get_content = request.GET("https://your.website.com/?param=value"); // get_content variable will store the content returned from url
+           } catch (Exception e) {
+               e.printStackTrace();
+           }
 
-         // OR
-         // POST method:
+           // OR
+           // POST method:
+           try {
+               String post_request = request.POST("https://your.website.com/", "param=value&param2=value"); // post_request variable will store the content of the url after all parameters was sent with POST method
+           } catch (Exception e) {
+               e.printStackTrace();
+           }
 
-         // post_request variable will store the content of the url after all parameters was sent with POST method
-         String post_request = request.POST("https://your.website.com/", "param=value&param2=value"); 
-
-        }
-    }).start();
-        
-        
-    
+       }
+   }).start();
+       
   }
   
 }
