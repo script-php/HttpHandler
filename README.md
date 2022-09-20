@@ -10,16 +10,26 @@ public class MainActivity {
   HttpHandler request = new HttpHandler(this);
   
   protected void onCreate() {
-    // GET method:
+  
+   new Thread(new Runnable() {
+        @Override
+        public void run() {
+         // GET method:
+
+         // get_content variable will store the content returned from url
+         String get_content = request.GET("https://your.website.com/?param=value");  
+
+         // OR
+         // POST method:
+
+         // post_request variable will store the content of the url after all parameters was sent with POST method
+         String post_request = request.POST("https://your.website.com/", "param=value&param2=value"); 
+
+        }
+    }).start();
+        
+        
     
-    // get_content variable will store the content returned from url
-    String get_content = request.GET("https://your.website.com/?param=value");  
-    
-    // OR
-    // POST method:
-    
-    // post_request variable will store the content of the url after all parameters was sent with POST method
-    String post_request = request.POST("https://your.website.com/", "param=value&param2=value"); 
   }
   
 }
