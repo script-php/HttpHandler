@@ -10,8 +10,8 @@ HttpHandler request = new HttpHandler(this);
   
 // GET method:
 String get_content = request.GET("https://your.website.com/?param=value"); // get_content variable will store the content returned from url
-```
-```
+
+
 // OR
 // POST method:
 
